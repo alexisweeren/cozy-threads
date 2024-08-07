@@ -24,25 +24,11 @@ export default function Success() {
       });
   }, []);
 
-  function generateRandomOrderNumer(length = 8) {
-    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-    let result = '';
-    for (let i = 0; i < length; i++) {
-      result += characters.charAt(Math.floor(Math.random() * characters.length));
-    }
-    return result;
-  }
-
   return (
     <section className='text-black text-center' id="success">
-         <img src={'products/cozy-threads.png'} style={{
-                width: '150px',
-                height: '70px',
-                margin: '0 auto',
-            }} />
       <p>
         We appreciate your business!<br></br>
-        Your order confirmation number is '{generateRandomOrderNumer()}'.
+        Your order confirmation number is '0BYKLMJ1'.
         <br></br>A confirmation email will be sent to your email.
         <br></br><br></br><br></br>
         If you have any questions, please email <a href="mailto:orders@cozythreadsupport.com">cozythreadsupport@example.com</a>.

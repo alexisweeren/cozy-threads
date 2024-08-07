@@ -5,26 +5,18 @@ import './globals.css'
 import { StripeContextProvider } from '../context/stripeContext'
 
 export default function Layout({ children }) {
-
-
     return (
         <html lang="en">
-            <head>
-                <meta charSet="UTF-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <title>My App</title>
-            </head>
-            <body>
-                    <ProductsContextProvider>
+            <body className="flex flex-col min-h-screen">
+                <ProductsContextProvider>
                     <StripeContextProvider>
-                    <Header />
-                        <div className='p-5 bg-white'>
+                        <Header />
+                        <main className="flex-grow p-5 bg-white">
                             {children}
-                        </div>
+                        </main>
                         <Footer />
-                        </StripeContextProvider>
-                    </ProductsContextProvider>
-                
+                    </StripeContextProvider>
+                </ProductsContextProvider>
             </body>
         </html>
     );
