@@ -4,11 +4,11 @@ import { useState, useContext } from 'react'
 import { ProductsContext } from '../context/productContext'
 
 export default function Header() {
-    const [activePath, setActivePath] = useState('/');
-    const { selectedProducts } = useContext(ProductsContext);
+    const [activePath, setActivePath] = useState('/')
+    const { selectedProducts } = useContext(ProductsContext)
 
     const handleClick = (path) => {
-        setActivePath(path);
+        setActivePath(path)
     }
 
     return (
@@ -53,5 +53,5 @@ export default function Header() {
                 </div>
             </div>
         </header>
-    );
+    )
 }

@@ -1,6 +1,6 @@
 'use client'
-import Product from '/Users/alexis/Desktop/cozy-threads/src/components/products.js';;
-import { useState, useEffect } from 'react';
+import Product from '/Users/alexis/Desktop/cozy-threads/src/components/products.js'
+import { useState, useEffect } from 'react'
 
 export default function Home() {
   const [productsInfo, setProductsInfo] = useState([])
@@ -18,9 +18,9 @@ export default function Home() {
       } catch (error) {
         console.error('Failed to fetch products:', error)
       }
-    };
+    }
 
-    fetchProducts();
+    fetchProducts()
   }, [])
   const categoryName = [...new Set(productsInfo.map(product => product.category))]
 
@@ -30,9 +30,9 @@ export default function Home() {
   } else {
     products = productsInfo
   }
-  console.log('productsInfo ', productsInfo)
+
   return (
-    <>
+    <div>
       <div className="p-5 bg-white">
         <div className='pb-8'>
           <input value={searchText} onChange={event => setSeachText(event.target.value)} type='text' placeholder='Seach for products...' className='bg-gray-100 w-full py-2 px-4 rounded-xl text-black'></input>
@@ -41,14 +41,22 @@ export default function Home() {
           {categoryName.map(categoryName => (
 
             <div key={categoryName}>
-              {products.find(products => products.category == categoryName) && (
+              {products.find(products => products.category === categoryName) && (
                 <div> <h2 className="text-2xl capitalize text-black">{categoryName}</h2>
                   <div className="py-4">
                     <div className='flex -mx-5 overflow-x-scroll snap-x scrollbar-hide'>
                       {products.filter(product => product.category === categoryName).map(productInfo => (
 
                         <div key={productInfo.productId} className='px-5 snap-start'>
-                          <Product {...productInfo} />
+                          <Product
+                            productId={productInfo.productId}
+                            name={productInfo.name}
+                            imageUrl={productInfo.imageUrl}
+                            price={productInfo.price}
+                            description={productInfo.description}
+                            category={productInfo.category}
+                            priceId={productInfo.priceId}
+                          />
                         </div>
                       ))}
                     </div>
@@ -59,6 +67,6 @@ export default function Home() {
           ))}
         </div>
       </div>
-    </>
-  );
+    </div>
+  )
 }

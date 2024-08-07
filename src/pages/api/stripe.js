@@ -1,4 +1,4 @@
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 
 export default async function handler(req, res) {
   switch (req.method) {
@@ -80,28 +80,28 @@ export default async function handler(req, res) {
           },
           allow_promotion_codes: true,
           return_url: 'http://localhost:3000/success'
-        });
+        })
 
-        res.send({ clientSecret: session.client_secret });
+        res.send({ clientSecret: session.client_secret })
       } catch (err) {
-        res.status(err.statusCode || 500).json(err.message);
+        res.status(err.statusCode || 500).json(err.message)
       }
       break;
     case "GET":
       try {
         const session =
-          await stripe.checkout.sessions.retrieve(req.query.session_id);
+          await stripe.checkout.sessions.retrieve(req.query.session_id)
 
         res.send({
           status: session.status,
           customer_email: session.customer_details.email
         });
       } catch (err) {
-        res.status(err.statusCode || 500).json(err.message);
+        res.status(err.statusCode || 500).json(err.message)
       }
-      break;
+      break
     default:
-      res.setHeader('Allow', req.method);
-      res.status(405).end('Method Not Allowed');
+      res.setHeader('Allow', req.method)
+      res.status(405).end('Method Not Allowed')
   }
 }

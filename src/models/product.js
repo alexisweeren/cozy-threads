@@ -8,7 +8,7 @@ const productSchema = new Schema({
     price: { type: Number, required: true },
     productId: { type: String, required: true },
     priceId: { type: String, required: true }
-});
+})
 
 const Product = models.Product || model('Product', productSchema)
 

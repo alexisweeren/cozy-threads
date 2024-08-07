@@ -1,17 +1,16 @@
-'use client';
-import React, { useEffect, useState, useContext } from 'react';
-import { redirect } from 'next/navigation'
-import { ProductsContext } from '/Users/alexis/Desktop/cozy-threads/src/context/productContext.js';
+'use client'
+import React, { useEffect, useState, useContext } from 'react'
+import { ProductsContext } from '/Users/alexis/Desktop/cozy-threads/src/context/productContext.js'
 
 export default function Success() {
   const [status, setStatus] = useState(null);
-  const [customerEmail, setCustomerEmail] = useState('');
-  let { selectedProducts, setSelectedProducts } = useContext(ProductsContext);
+  const [customerEmail, setCustomerEmail] = useState('')
+  let { selectedProducts, setSelectedProducts } = useContext(ProductsContext)
 
   useEffect(() => {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const sessionId = urlParams.get('session_id');
+    const queryString = window.location.search
+    const urlParams = new URLSearchParams(queryString)
+    const sessionId = urlParams.get('session_id')
     setSelectedProducts([])
 
     fetch(`/api/stripe`, {
@@ -19,10 +18,10 @@ export default function Success() {
     })
       .then((res) => res.json())
       .then((data) => {
-        setStatus(data.status);
-        setCustomerEmail(data.customer_email);
-      });
-  }, []);
+        setStatus(data.status)
+        setCustomerEmail(data.customer_email)
+      })
+  }, [])
 
   return (
     <section className='text-black text-center' id="success">

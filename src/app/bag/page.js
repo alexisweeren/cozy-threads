@@ -1,18 +1,18 @@
 
 'use client'
-import { useContext, useEffect, useState } from 'react';
-import { loadStripe } from '@stripe/stripe-js';
-import { ProductsContext } from '/Users/alexis/Desktop/cozy-threads/src/context/productContext.js'; // Import the context
-import Link from 'next/link';
-import { StripeContext } from '@/context/stripeContext';
+import { useContext, useEffect, useState } from 'react'
+import { loadStripe } from '@stripe/stripe-js'
+import { ProductsContext } from '/Users/alexis/Desktop/cozy-threads/src/context/productContext.js'
+import Link from 'next/link'
+import { StripeContext } from '@/context/stripeContext'
 export default function Bag() {
 
     const handleClick = (path) => {
-        setActivePath(path);
+        setActivePath(path)
     }
-    const [activePath, setActivePath] = useState('/');
+    const [activePath, setActivePath] = useState('/')
     const { stripeItems, setStripeItems } = useContext(StripeContext)
-    const { selectedProducts, setSelectedProducts } = useContext(ProductsContext);
+    const { selectedProducts, setSelectedProducts } = useContext(ProductsContext)
     const [productsInfo, setProductsInfo] = useState([])
 
     useEffect(() => {
@@ -23,28 +23,28 @@ export default function Bag() {
                 .then(response => response.json())
                 .then(data => setProductsInfo(data))
                 .catch(error => {
-                    console.error('Error fetching data:', error);
-                });
+                    console.error('Error fetching data:', error)
+                })
         }
-    }, [selectedProducts]);
+    }, [selectedProducts])
     useEffect(() => {
         if (productsInfo.length > 0) {
             const quantityMap = productsInfo.reduce((map, product) => {
-                const count = selectedProducts.filter(id => id === product.productId).length;
+                const count = selectedProducts.filter(id => id === product.productId).length
                 if (count > 0) {
-                    map.set(product.priceId, (map.get(product.priceId) || 0) + count);
+                    map.set(product.priceId, (map.get(product.priceId) || 0) + count)
                 }
-                return map;
-            }, new Map());
+                return map
+            }, new Map())
 
             const newStripeItems = Array.from(quantityMap, ([priceId, quantity]) => ({
                 price: priceId,
                 quantity,
-            }));
+            }))
 
-            setStripeItems(newStripeItems);
+            setStripeItems(newStripeItems)
         }
-    }, [productsInfo, selectedProducts]);
+    }, [productsInfo, selectedProducts])
 
     const getProductCount = (productId) => {
         return selectedProducts.filter(id => id === productId).length
@@ -55,15 +55,13 @@ export default function Bag() {
     }
 
     function removeProduct(id) {
-        console.log('selectedProducts , ', selectedProducts)
         setSelectedProducts(prev => {
             const updatedProducts = prev.filter((productId, index, self) =>
                 productId !== id || self.indexOf(productId) !== index
-            );
-            return updatedProducts;
-        });
+            )
+            return updatedProducts
+        })
     }
-    console.log('selectedProducts , ', selectedProducts)
 
     return (
         <div>
@@ -131,6 +129,6 @@ export default function Bag() {
 
             )}
         </div>
-    );
+    )
 
 }
