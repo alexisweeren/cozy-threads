@@ -1,5 +1,5 @@
 'use client'
-import Product from '../../src/context/productContext.js'
+import Product from '@/components/products.js'
 import { useState, useEffect } from 'react'
 
 export default function Home() {
