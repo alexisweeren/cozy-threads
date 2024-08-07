@@ -4,7 +4,7 @@ import { loadStripe } from '@stripe/stripe-js'
 import { StripeContext } from '@/context/stripeContext'
 import { EmbeddedCheckoutProvider, EmbeddedCheckout } from '@stripe/react-stripe-js'
 
-const stripePromise = await loadStripe('pk_test_51PkVmAAZABspyeK0HLL6SRwhkHx3hKs2KVNiyuZXvkg0Up5itLajM0xyWOmJOPUm98RrcBCw1H9JoMqoKynfpTQ500vzdKtin0')
+const stripePromise = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 
 export default function CheckOut() {
 
@@ -16,8 +16,7 @@ export default function CheckOut() {
         return fetch("/api/stripe", {
             method: "POST",
             headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': 'https://cozy-threads.netlify.app'
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(requestBody),
         })
