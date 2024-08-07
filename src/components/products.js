@@ -11,7 +11,7 @@ export default function Product({_id, name, price, description, imageUrl, produc
     return (
         <div className="py-4">
             <div className="w-64">
-                <div className="bg-gray-200 p-5 rounded-xl">
+                <div className="bg-gray-100 p-5 rounded-xl">
                     <img src={imageUrl} style={{ width: '200px', height: '200px', objectFit: 'cover' }} />
                 </div>
                 <div className="mt-2">

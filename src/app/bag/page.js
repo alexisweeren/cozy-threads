@@ -55,6 +55,7 @@ export default function Bag() {
     }
 
     function removeProduct(id) {
+        console.log('selectedProducts , ', selectedProducts)
         setSelectedProducts(prev => {
             const updatedProducts = prev.filter((productId, index, self) =>
                 productId !== id || self.indexOf(productId) !== index
@@ -62,11 +63,11 @@ export default function Bag() {
             return updatedProducts;
         });
     }
-    console.log('stripe , ', stripeItems)
+    console.log('selectedProducts , ', selectedProducts)
 
     return (
         <div>
-            {productsInfo.length > 0 ? (
+            {selectedProducts.length > 0 ? (
                 <ul>
                     <h1 className='text-black text-2xl font-bold'>Shopping Bag</h1>
                     {productsInfo.map((product) => (
@@ -90,7 +91,7 @@ export default function Bag() {
                     ))}
                     <div className="flex">
                         <Link href="/checkout" className="m-auto">
-                            <button className="bg-green-700 border-forest-green px-2 rounded-lg text-white">
+                            <button className="bg-forest-green border-forest-green px-2 rounded-lg text-white">
                                 I'm ready to checkout!
                             </button>
                         </Link>
@@ -99,7 +100,17 @@ export default function Bag() {
                 </ul>
 
             ) : (
-                <p>No products in the cart.</p>
+                <div className="flex flex-col items-center space-y-6">
+                    <div>
+                        <p className='text-black text-xl m-auto'>No products in your cart...</p>
+                    </div>
+                    <div className='text-gray-700 m-auto'>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-12 h-12">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.182 16.318A4.486 4.486 0 0 0 12.016 15a4.486 4.486 0 0 0-3.198 1.318M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z" />
+                        </svg>
+                    </div>
+                </div>
+
             )}
         </div>
     );
