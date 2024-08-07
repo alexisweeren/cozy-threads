@@ -4,7 +4,7 @@ import { loadStripe } from '@stripe/stripe-js'
 import { StripeContext } from '@/context/stripeContext'
 import { EmbeddedCheckoutProvider, EmbeddedCheckout } from '@stripe/react-stripe-js'
 
-const stripePromise = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
+const stripePromise = await loadStripe('pk_test_51PkVmAAZABspyeK0HLL6SRwhkHx3hKs2KVNiyuZXvkg0Up5itLajM0xyWOmJOPUm98RrcBCw1H9JoMqoKynfpTQ500vzdKtin0')
 
 export default function CheckOut() {
 
