@@ -1,7 +1,6 @@
 
 'use client'
 import { useContext, useEffect, useState } from 'react'
-import { loadStripe } from '@stripe/stripe-js'
 import { ProductsContext } from '../../../src/context/productContext.js'
 import Link from 'next/link'
 import { StripeContext } from '@/context/stripeContext'
