@@ -14,12 +14,13 @@ export default function Bag() {
     const { stripeItems, setStripeItems } = useContext(StripeContext)
     const { selectedProducts, setSelectedProducts } = useContext(ProductsContext)
     const [productsInfo, setProductsInfo] = useState([])
+    const BASE_URL = process.env.BASE_URL
 
     useEffect(() => {
         if (selectedProducts.length > 0) {
             const uniqueIds = [...new Set(selectedProducts)]
 
-            fetch(`https://main--cozy-threads.netlify.app/api/products?ids=${uniqueIds.join(',')}`)
+            fetch(`${BASE_URL}/api/products?ids=${uniqueIds.join(',')}`)
                 .then(response => response.json())
                 .then(data => setProductsInfo(data))
                 .catch(error => {

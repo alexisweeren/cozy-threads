@@ -5,11 +5,12 @@ import { useState, useEffect } from 'react'
 export default function Home() {
   const [productsInfo, setProductsInfo] = useState([])
   const [searchText, setSeachText] = useState([])
+  const BASE_URL = process.env.BASE_URL
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('https://main--cozy-threads.netlify.app/api/products')
+        const response = await fetch(`${BASE_URL}/api/products`)
         if (!response.ok) {
           throw new Error('Network response was not ok')
         }
