@@ -4,10 +4,10 @@ import { loadStripe } from '@stripe/stripe-js'
 import { StripeContext } from '@/context/stripeContext'
 import { EmbeddedCheckoutProvider, EmbeddedCheckout } from '@stripe/react-stripe-js'
 
-export default async function CheckOut() {
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 
-    const stripePromise = await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
-    const { stripeItems, setStripeItems } = useContext(StripeContext)
+export default function CheckOut() {
+    const { stripeItems } = useContext(StripeContext)
 
     const fetchClientSecret = useCallback(() => {
         const requestBody = { items: stripeItems }
