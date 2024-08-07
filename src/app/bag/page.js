@@ -19,7 +19,7 @@ export default function Bag() {
         if (selectedProducts.length > 0) {
             const uniqueIds = [...new Set(selectedProducts)]
 
-            fetch(`/api/products?ids=${uniqueIds.join(',')}`)
+            fetch(`https://main--cozy-threads.netlify.app/api/products?ids=${uniqueIds.join(',')}`)
                 .then(response => response.json())
                 .then(data => setProductsInfo(data))
                 .catch(error => {

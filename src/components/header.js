@@ -15,11 +15,10 @@ export default function Header() {
         <header className='sticky top-0 z-50 bg-white border-b border-grey-200'>
             <div className='bg-green-600'>
                 <h3 className='text-white text-center text-xl'>
-                    SALE! Use code 'STRIPEISCOOL50' for 50% off any order!
+                    Sale! Use code 'STRIPEISCOOL50' for 50% off any order!
                 </h3>
             </div>
             <div className='flex items-center justify-between p-4'>
-                {/* <h3 className='text-black'>SALE! Use code 'STRIPEISCOOL50" for 50% off any order! </h3> */}
                 <a href="/" className='flex items-center'>
                     <img src='/products/cozy-threads.png' alt="Logo" style={{ width: '150px', height: '70px' }} />
                 </a>
