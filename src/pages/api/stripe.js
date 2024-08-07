@@ -79,7 +79,7 @@ export default async function handler(req, res) {
             enabled: true,
           },
           allow_promotion_codes: true,
-          return_url: 'http://localhost:3000/success'
+          return_url: '/success'
         })
 
         res.send({ clientSecret: session.client_secret })
