@@ -66,11 +66,6 @@ export default function Bag() {
 
     return (
         <div>
-            <img src={'products/cozy-threads.png'} style={{
-                width: '150px',
-                height: '70px',
-                margin: '0 auto',
-            }} />
             {productsInfo.length > 0 ? (
                 <ul>
                     <h1 className='text-black text-2xl font-bold'>Shopping Bag</h1>

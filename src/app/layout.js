@@ -1,3 +1,4 @@
+import Header from '../components/header'
 import Footer from '../components/footer'
 import { ProductsContextProvider } from '../context/productContext'
 import './globals.css'
@@ -16,6 +17,7 @@ export default function Layout({ children }) {
             <body>
                     <ProductsContextProvider>
                     <StripeContextProvider>
+                    <Header />
                         <div className='p-5 bg-white'>
                             {children}
                         </div>

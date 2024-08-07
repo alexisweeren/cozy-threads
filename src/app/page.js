@@ -33,12 +33,6 @@ export default function Home() {
   console.log('productsInfo ', productsInfo)
   return (
     <>
-      <img src={'products/cozy-threads.png'} style={{
-        width: '150px',
-        height: '70px',
-        margin: '0 auto'
-      }} />
-
       <div className="p-5 bg-white">
         <div className='pb-8'>
           <input value={searchText} onChange={event => setSeachText(event.target.value)} type='text' placeholder='Seach for products...' className='bg-gray-100 w-full py-2 px-4 rounded-xl text-black'></input>
