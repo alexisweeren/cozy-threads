@@ -14,6 +14,11 @@ export default function Layout({ children }) {
                         <main className="flex-grow p-5 bg-white">
                             {children}
                         </main>
+                        <div id="chat-button" className="fixed bottom-5 right-5 z-50 forest-green">
+                            <a href="mailto:cozythreadsupport@example.com" className="bg-gray-200 text-black rounded-full p-3 shadow-lg hover:bg-gray-400 inline-block">
+                                Email support!
+                            </a>
+                        </div>
                         <Footer />
                     </StripeContextProvider>
                 </ProductsContextProvider>

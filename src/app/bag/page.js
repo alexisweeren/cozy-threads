@@ -96,6 +96,24 @@ export default function Bag() {
                             </button>
                         </Link>
                     </div>
+                    <div>
+                        <div className='text-black'>You may also like .... </div>
+                        <div key="prod_QcDHb0HkGOwejK" className='flex bg-white m-5'>
+                            <div className='bg-gray-100 p-3 rounded-xl text-black'>
+                                <img className='w-24' src='/products/zip-up-grey.png' alt={'Zip Up Hoodie'}></img>
+                            </div>
+                            <div className='pl-4'>
+                                <h3 className='text-black text-lg font-bold'>Zip Up Hoodie</h3>
+                                <p className='text-black text-lm leading-4 text-gray-600'>Crafted from organic cotton and recycled polyester, this sustainable zip-up hoodie combines style and comfort. Featuring a classic design and eco-conscious materials, it’s a stylish choice for a greener wardrobe.</p>
+                                <div className='flex'>
+                                    <div className='grow text-black'>$35</div>
+                                    <div className='text-black'>
+                                        <button className='bg-forest-green border border-forest-green px-2 rounded-lg text-white' onClick={() => addMoreProduct('prod_QcDHb0HkGOwejK')}>Add it to cart!</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                 </ul>
 
