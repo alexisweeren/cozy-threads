@@ -10,7 +10,7 @@ export default function Home() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch(`http://main--cozy-threads.netlify.app/api/products`)
+        const response = await fetch(`${BASE_URL}/api/products`)
         if (!response.ok) {
           throw new Error('Network response was not ok')
         }

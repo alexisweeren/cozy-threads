@@ -17,6 +17,7 @@ export default function CheckOut() {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'https://cozy-threads.netlify.app'
             },
             body: JSON.stringify(requestBody),
         })
