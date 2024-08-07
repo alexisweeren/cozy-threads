@@ -7,7 +7,8 @@ import { EmbeddedCheckoutProvider, EmbeddedCheckout } from '@stripe/react-stripe
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 
 export default function CheckOut() {
-    const { stripeItems } = useContext(StripeContext)
+
+    const { stripeItems, setStripeItems } = useContext(StripeContext)
 
     const fetchClientSecret = useCallback(() => {
         const requestBody = { items: stripeItems }
@@ -16,6 +17,7 @@ export default function CheckOut() {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': 'https://cozy-threads.netlify.app'
             },
             body: JSON.stringify(requestBody),
         })
