@@ -1,5 +1,5 @@
 'use client'
-import Product from '/Users/alexis/Desktop/cozy-threads/src/components/products.js'
+import Product from '../../src/context/productContext.js'
 import { useState, useEffect } from 'react'
 
 export default function Home() {
