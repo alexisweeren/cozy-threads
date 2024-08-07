@@ -1,20 +1,20 @@
 import { useContext } from 'react'
 import { ProductsContext } from '../context/productContext'
 
-export default function Product({_id, name, price, description, imageUrl, productId, priceId}) {
+export default function Product({ _id, name, price, description, imageUrl, productId, priceId }) {
     const { selectedProducts, setSelectedProducts } = useContext(ProductsContext)
 
     const addToCart = () => {
-        setSelectedProducts(prev => [...prev,productId])
+        setSelectedProducts(prev => [...prev, productId])
     }
 
     return (
         <div className="py-4">
             <div className="w-64">
-                <div className="bg-gray-100 p-5 rounded-xl">
-                    <img src={imageUrl} style={{ width: '200px', height: '200px', objectFit: 'cover' }} />
+                <div className="bg-gray-100 p-4 rounded-xl flex items-center justify-center">
+                    <img src={imageUrl} style={{ width: '200px', height: '200px' }} />
                 </div>
-                <div className="mt-2">
+                <div className="mt-3">
                     <h3 className="font-bold text-lg text-black">{name}</h3>
                 </div>
                 <p className="text-sm mt-1 leading-4 text-gray-600">{description}</p>

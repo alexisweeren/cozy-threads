@@ -13,11 +13,24 @@ export default function Header() {
 
     return (
         <header className='sticky top-0 z-50 bg-white border-b border-grey-200'>
+            <div className='bg-green-600'>
+                <h3 className='text-white text-center text-xl'>
+                    SALE! Use code 'STRIPEISCOOL50' for 50% off any order!
+                </h3>
+            </div>
             <div className='flex items-center justify-between p-4'>
-                <a href="/" className='flex-grow flex'>
-                    <img src={'/products/cozy-threads.png'} alt="Logo" style={{ width: '150px', height: '70px' }} />
+                {/* <h3 className='text-black'>SALE! Use code 'STRIPEISCOOL50" for 50% off any order! </h3> */}
+                <a href="/" className='flex items-center'>
+                    <img src='/products/cozy-threads.png' alt="Logo" style={{ width: '150px', height: '70px' }} />
                 </a>
-                <div className="flex space-x-12">
+
+                <div className="flex space-x-8 flex-grow justify-center">
+                    <div className='text-gray-700 hover:underline cursor-pointer'>Hoodies</div>
+                    <div className='text-gray-700 hover:underline cursor-pointer'>Accessories</div>
+                    <div className='text-gray-700 hover:underline cursor-pointer'>Shirts</div>
+                </div>
+
+                <div className="flex space-x-6">
                     <Link href="/" onClick={() => handleClick('/')}>
                         <div className={`flex items-center cursor-pointer ${activePath === '/' ? 'text-forest-green' : 'text-black'}`}>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
