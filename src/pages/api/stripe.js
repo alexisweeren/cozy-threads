@@ -1,12 +1,9 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
-  console.log('Request method:', req.method);
-  console.log('Request body:', req.body.items);
   switch (req.method) {
     case "POST":
       try {
-        // console.log('req.body' ,req.body)
         const session = await stripe.checkout.sessions.create({
           payment_method_types: ['card', 'cashapp' , 'klarna', 'us_bank_account'],
           billing_address_collection: 'required',

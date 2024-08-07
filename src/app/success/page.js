@@ -43,7 +43,7 @@ export default function Success() {
       <p>
         We appreciate your business!<br></br>
         Your order confirmation number is '{generateRandomOrderNumer()}'.
-        <br></br>A confirmation email will be sent to {customerEmail}.
+        <br></br>A confirmation email will be sent to your email.
         <br></br><br></br><br></br>
         If you have any questions, please email <a href="mailto:orders@cozythreadsupport.com">cozythreadsupport@example.com</a>.
       </p>
