@@ -1,7 +1,6 @@
 'use client'
 import React, { useEffect, useState, useContext } from 'react'
 import { ProductsContext } from '../../../src/context/productContext.js'
-import { cookies } from "next/headers"
 
 export default function Success() {
   const [status, setStatus] = useState(null);
