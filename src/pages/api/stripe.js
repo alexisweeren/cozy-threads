@@ -1,7 +1,6 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 
 export default async function handler(req, res) {
-  console.log(req.body.items)
   let items = req.body.items
   switch (req.method) {
     case "POST":
