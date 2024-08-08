@@ -1,4 +1,4 @@
-'suer client'
+'use client'
 import { createContext, useState } from 'react'
 import useLocalStorageState from 'use-local-storage-state'
 
