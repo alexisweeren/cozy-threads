@@ -1,6 +1,9 @@
+'use client'
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 
 export default async function handler(req, res) {
+  console.log(req.body.items)
+  let items = req.body.items
   switch (req.method) {
     case "POST":
       try {
@@ -73,15 +76,14 @@ export default async function handler(req, res) {
             },
           ],
           ui_mode: 'embedded',
-          line_items: req.body.items,
+          line_items: items,
           mode: 'payment',
           automatic_tax: {
             enabled: true,
           },
           allow_promotion_codes: true,
-          return_url: '/success'
+          return_url: 'https://cozy-threads-eight.vercel.app/success'
         })
-
         res.send({ clientSecret: session.client_secret })
       } catch (err) {
         res.status(err.statusCode || 500).json(err.message)

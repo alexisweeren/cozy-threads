@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect, useState, useContext } from 'react'
 import { ProductsContext } from '../../../src/context/productContext.js'
+import { cookies } from "next/headers"
 
 export default function Success() {
   const [status, setStatus] = useState(null);
@@ -10,7 +11,7 @@ export default function Success() {
   useEffect(() => {
     const queryString = window.location.search
     const urlParams = new URLSearchParams(queryString)
-    const sessionId = urlParams.get('session_id')
+    const sessionId = urlParams.get('session_id')   
     setSelectedProducts([])
 
     fetch(`/api/stripe`, {
