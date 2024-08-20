@@ -2,10 +2,12 @@
 import Link from 'next/link'
 import { useState, useContext } from 'react'
 import { ProductsContext } from '../context/productContext'
+import { ColorContext } from '@/context/colorContext'
 
 export default function Header() {
     const [activePath, setActivePath] = useState('/')
     const { selectedProducts } = useContext(ProductsContext)
+    const { selectedColor } = useContext(ColorContext)
 
     const handleClick = (path) => {
         setActivePath(path)
@@ -13,7 +15,7 @@ export default function Header() {
 
     return (
         <header className='sticky top-0 z-50 bg-white border-b border-grey-200'>
-            <div className='bg-green-600'>
+             <div style={{ backgroundColor: selectedColor}}>
                 <h3 className='text-white text-center text-xl'>
                     Sale! Use code 'STRIPEISCOOL50' for 50% off any order!
                 </h3>
