@@ -80,7 +80,7 @@ export default async function handler(req, res) {
             enabled: true,
           },
           allow_promotion_codes: true,
-          return_url: 'https://cozy-threads-eight.vercel.app/success'
+          return_url: 'http://cozy-threads-eight.vercel.app/success'
         })
         res.send({ clientSecret: session.client_secret })
       } catch (err) {
